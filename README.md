@@ -2,6 +2,12 @@ CODEX 2.0: Training Performance Dashboard
 
 A sleek, high-performance analytical portal designed to aggregate, display, and compare embedded Looker Studio datasets. Built with a unified "Athena" aesthetic (Deep Emerald and Gold), this dashboard provides an executive-level viewing experience for training and performance metrics.
 
+🏗️ How It Works
+
+This application acts as a lightweight, highly stylized UI wrapper. All data aggregation, filtering, and visualization happens entirely within Google Looker Studio (Data Studio).
+
+The resulting interactive reports are then seamlessly embedded directly into the single HTML build via iframes. By decoupling the frontend user interface from the data processing layer, the dashboard remains incredibly fast, requires zero backend server maintenance, and ensures that raw data is never directly exposed in the source code.
+
 🌟 Key Features
 
 Zero-Build Architecture: Runs entirely on the client side using a single HTML file with standalone React and Tailwind CSS via CDN. No complex Node.js build pipelines required—just open and deploy.
@@ -40,4 +46,7 @@ Host the HTML: Serve the training_dashboard.html file on GitHub Pages, standard 
 
 Configure Your Data: To point the dashboard to your own Looker Studio reports, open training_dashboard.html and update the LOOKER_STUDIO_URLS dictionary at the top of the React script:
 
-co
+const LOOKER_STUDIO_URLS = {
+  'Your Custom Tab': 'https://datastudio.google.com/embed/reporting/...', 
+  // Append ?pageNavigation=hidden to your URLs for a seamless look!
+};
